@@ -40,6 +40,7 @@ void UserConnection::Handler()
             {
                 handleFunctions[cmd](*this, t_packet->data);
             } //Раньше здесь стоял else с отправкой извещения о неизвестной команде, но telnet так и норовит докинуть 2 байта, что нарушает эстетику.
+            delete t_packet;
         }
         else
             break;
